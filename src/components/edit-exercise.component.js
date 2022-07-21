@@ -8,7 +8,7 @@ export default class EditExercise extends Component {
 
     super(props);
     this.id = /[^/]*$/.exec(window.location.href)[0];
-
+    
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
@@ -26,8 +26,7 @@ export default class EditExercise extends Component {
 
   componentDidMount() {
     console.log(this)
-    axios.get('http://leokwo.github.io/mern_exercise_tracker/exercises/'+this.id)
-    // axios.get(window.location.href)
+    axios.get('http://localhost:5050/exercises/'+this.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -40,7 +39,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get('http://leokwo.github.io/mern_exercise_tracker/users/')
+    axios.get('http://localhost:5050/users')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -88,7 +87,7 @@ export default class EditExercise extends Component {
       date: this.state.date
     }
     
-    axios.post('http://leokwo.github.io/mern_exercise_tracker/exercises/update/' + this.id, exercise)
+    axios.post('http://localhost:5050/exercises/update/' + this.id, exercise)
       .then(res => console.log(res.data));
 
   }

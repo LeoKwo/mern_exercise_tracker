@@ -28,7 +28,7 @@ export default class CreateUser extends Component {
 
     console.log(user);
 
-    axios.post('http://leokwo.github.io/mern_exercise_tracker/users/add', user)
+    axios.post('http://localhost:5050/users/add', user)
       .then(res => console.log(res.data));
 
     this.setState({

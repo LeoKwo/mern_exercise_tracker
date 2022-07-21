@@ -23,7 +23,7 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://leokwo.github.io/mern_exercise_tracker/users/')
+    axios.get('http://localhost:5050/users')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -79,7 +79,7 @@ export default class CreateExercise extends Component {
 
     console.log(exercise.date);
 
-    axios.post('http://leokwo.github.io/mern_exercise_tracker/exercises/add', exercise)
+    axios.post('http://localhost:5050/exercises/add', exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';

@@ -26,7 +26,7 @@ export default class EditExercise extends Component {
 
   componentDidMount() {
     console.log(this)
-    axios.get('http://localhost:5050/exercises/'+this.id)
+    axios.get('http://leokwo.github.io/mern_exercise_tracker/exercises/'+this.id)
     // axios.get(window.location.href)
       .then(response => {
         this.setState({
@@ -40,7 +40,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5050/users/')
+    axios.get('http://leokwo.github.io/mern_exercise_tracker/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -88,7 +88,7 @@ export default class EditExercise extends Component {
       date: this.state.date
     }
     
-    axios.post('http://localhost:5050/exercises/update/' + this.id, exercise)
+    axios.post('http://leokwo.github.io/mern_exercise_tracker/exercises/update/' + this.id, exercise)
       .then(res => console.log(res.data));
 
   }
